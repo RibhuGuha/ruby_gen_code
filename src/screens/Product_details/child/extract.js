@@ -7,10 +7,10 @@ import Support from "shared/support";
 var fn = {};
 
 const MapItems = [
-    { source: "PType", target: "producttype", expand: "PType", exclude: [], func: Support.AddOrUpdateProductType }
-,    { source: "BuyingPrice", target: "productprice", expand: "BuyingPrice", exclude: [], func: Support.AddOrUpdateProductPrice }
-,    { source: "ODetails", target: "otherdetails", expand: "ODetails", exclude: [], func: Support.AddOrUpdateOtherDetails }
-,    { source: "", target: "product", expand: "MainImage", exclude: ['MainImage'], func: Support.AddOrUpdateProduct }
+    { navpropname: "PType", uicomponent: "producttypeptype", expand: "PType", exclude: [], func: Support.AddOrUpdateProductType }
+,    { navpropname: "BuyingPrice", uicomponent: "productpricebuyingprice", expand: "BuyingPrice", exclude: [], func: Support.AddOrUpdateProductPrice }
+,    { navpropname: "ODetails", uicomponent: "otherdetailsodetails", expand: "ODetails", exclude: [], func: Support.AddOrUpdateOtherDetails }
+,    { navpropname: "", uicomponent: "product", expand: "MainImage", exclude: ['MainImage'], func: Support.AddOrUpdateProduct }
 ]
 
 const FetchProductInfo = async () => {
@@ -54,7 +54,9 @@ const FetchProductDetails = async (productId, enums) => {
 
                 for (let i = 0; i < MapItems.length; i++) {
 
-                    const { source, target } = MapItems[i];
+                    const source = MapItems[i].navpropname;
+                    const target = MapItems[i].uicomponent;
+
                     const sourceObj = Helper.IsNullValue(source) ? product : product[source];
 
                     for (let prop in sourceObj) {

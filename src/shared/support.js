@@ -22,6 +22,7 @@ const defaultError = "Something went wrong while processing request!";
 
 */
 
+
 fn.AddOrUpdateProductType = async (input, excludesItems) => {
     return new Promise(async (resolve) => {
         let status = false, id = null, data = {};

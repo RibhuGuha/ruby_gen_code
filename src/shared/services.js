@@ -126,13 +126,13 @@ const GetOtherDetailsSingle = async (id, params, expands) => {     return new Pr
 const SetOtherDetailsSingle = async (input) => {     return new Promise(async (resolve) => {
         let id = input.OtherDetailsId;
         let method = "POST";
-        let url = `${serverApi}OtherDetails`;
+        let url = `${serverApi}OtherDetailss`;
         if (input.OtherDetailsId && !input.Deleted) {
             method = "PATCH";
-            url = `${serverApi}OtherDetails(${input.OtherDetailsId})`;
+            url = `${serverApi}OtherDetailss(${input.OtherDetailsId})`;
         } else if (input.OtherDetailsId && input.Deleted) {
             method = "DELETE";
-            url = `${serverApi}OtherDetails(${input.OtherDetailsId})`;
+            url = `${serverApi}OtherDetailss(${input.OtherDetailsId})`;
         }
 
         delete input['OtherDetailsId'];
